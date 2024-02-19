@@ -1,5 +1,2 @@
-pytest
-flake8
 mypy
 python-dotenv
-black
