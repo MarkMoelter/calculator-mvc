@@ -11,13 +11,18 @@ class Controller:
     def __init__(self, model: Model, view: View) -> None:
         self.model = model
         self.view = view
+        self._bind()
+
+    def _bind(self) -> None:
+        for btn in self.view.buttons:
+            btn.config(command=lambda caption=btn['text']: self.on_button_click(caption))
 
     def start_calculator(self) -> None:
         """
         Start the application.
-        :return: None
         """
         self.view.mainloop()
 
     def on_button_click(self, button_caption: str) -> None:
         logger.info(f"Clicked button: {button_caption}")
+        print(f"Clicked button: {button_caption}")

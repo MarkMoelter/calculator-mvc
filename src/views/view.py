@@ -22,10 +22,11 @@ class View(tk.Tk):
         super().__init__()
 
         self.title('PyCalculator')
+
         self.main_frame = self._make_main_frame()
         self.value_var = tk.StringVar()
         self._make_entry()
-        self._make_buttons()
+        self.buttons = self._make_buttons()
 
     def _make_main_frame(self):
         frame = ttk.Frame(self)
@@ -40,17 +41,25 @@ class View(tk.Tk):
         ent.state(statespec=['readonly'])  # Make entry read-only
         ent.pack(fill='x')
 
-    def _make_buttons(self) -> None:
+    def _make_buttons(self) -> list[ttk.Button]:
         """Make the calculator buttons."""
         outer_frame = ttk.Frame(self.main_frame)
         outer_frame.pack()
 
         inner_frame = ttk.Frame(outer_frame)
 
+        buttons = []
         for idx, caption in enumerate(self.button_captions):
             if idx % self.MAX_BUTTONS_PER_ROW == 0:
                 inner_frame = ttk.Frame(outer_frame)
                 inner_frame.pack()
 
-            button = ttk.Button(inner_frame, text=caption)
-            button.pack(side='left')
+            btn = ttk.Button(
+                inner_frame,
+                text=caption
+            )
+            btn.pack(side='left')
+
+            buttons.append(btn)
+
+        return buttons
