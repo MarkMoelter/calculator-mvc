@@ -8,8 +8,9 @@ class Controller:
         self.model = model
         self.view = view
 
-    def start(self) -> None:
+    def start_calculator(self) -> None:
         """
         Start the application.
         :return: None
         """
+        self.view.mainloop()

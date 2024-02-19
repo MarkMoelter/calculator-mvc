@@ -6,8 +6,7 @@ def main() -> None:
     model = Model()
     view = View()
     controller = Controller(model, view)
-
-    controller.start()
+    controller.start_calculator()
 
 
 if __name__ == '__main__':
