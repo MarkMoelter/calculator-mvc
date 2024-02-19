@@ -1,6 +1,6 @@
 CLEAR = "C"
 DELETE = "<-"
-INVERT_SIGN = "+/-"
+INVERT = "+/-"
 PERCENT = "%"
 DIVIDE = "/"
 MULTIPLY = "*"
