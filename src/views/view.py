@@ -2,7 +2,7 @@ import logging
 import tkinter as tk
 from tkinter import ttk
 
-from calc_caption_enum import CalcCaption
+import calc_captions as cc
 
 logger = logging.getLogger(__name__)
 
@@ -13,25 +13,26 @@ class View(tk.Tk):
     MAX_BUTTONS_PER_ROW = 4
 
     button_captions = [
-        CalcCaption.CLEAR,
-        CalcCaption.INVERT_SIGN,
-        CalcCaption.PERCENT,
-        CalcCaption.DIVIDE,
+        cc.CLEAR,
+        cc.DELETE,
+        cc.INVERT_SIGN,
+        cc.PERCENT,
         "7",
         "8",
         "9",
-        CalcCaption.MULTIPLY,
+        cc.DIVIDE,
         "4",
         "5",
         "6",
-        CalcCaption.SUBTRACT,
+        cc.MULTIPLY,
         "1",
         "2",
         "3",
-        CalcCaption.ADD,
+        cc.SUBTRACT,
         "0",
-        CalcCaption.DECIMAL,
-        CalcCaption.EQUALS,
+        cc.DECIMAL,
+        cc.EQUALS,
+        cc.ADD,
     ]
 
     def __init__(self) -> None:
