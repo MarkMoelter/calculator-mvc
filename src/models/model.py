@@ -1,6 +1,6 @@
 import logging
 
-import calc_captions as cc
+import src.calc_captions as cc
 
 logger = logging.getLogger(__name__)
 
@@ -11,13 +11,13 @@ class Model:
         self.value = ""
 
     def calculate(self, caption: str) -> str:
-
-        if caption == "C":
+        if caption == cc.CLEAR:
             self.value = ""
 
-        elif caption == cc.INVERT_SIGN and self.value and self.value != cc.DECIMAL:
+        elif caption == cc.INVERT and self.value and self.value != cc.DECIMAL:
             # Determine if int or float
-            if cc.DECIMAL in self.value:
+            is_float = cc.DECIMAL in self.value
+            if is_float:
                 numeric_val = float(self.value)
             else:
                 numeric_val = int(self.value)
