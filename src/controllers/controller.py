@@ -1,5 +1,9 @@
+import logging
+
 from src.models import Model
 from src.views import View
+
+logger = logging.getLogger(__name__)
 
 
 class Controller:
@@ -14,3 +18,6 @@ class Controller:
         :return: None
         """
         self.view.mainloop()
+
+    def on_button_click(self, button_caption: str) -> None:
+        logger.info(f"Clicked button: {button_caption}")
