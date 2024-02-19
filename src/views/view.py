@@ -17,16 +17,27 @@ class View(tk.Tk):
         CalcCaption.INVERT_SIGN,
         CalcCaption.PERCENT,
         CalcCaption.DIVIDE,
-        '7', '8', '9', CalcCaption.MULTIPLY,
-        '4', '5', '6', CalcCaption.SUBTRACT,
-        '1', '2', '3', CalcCaption.ADD,
-        '0', CalcCaption.DECIMAL, CalcCaption.EQUALS,
+        "7",
+        "8",
+        "9",
+        CalcCaption.MULTIPLY,
+        "4",
+        "5",
+        "6",
+        CalcCaption.SUBTRACT,
+        "1",
+        "2",
+        "3",
+        CalcCaption.ADD,
+        "0",
+        CalcCaption.DECIMAL,
+        CalcCaption.EQUALS,
     ]
 
     def __init__(self) -> None:
         super().__init__()
 
-        self.title('PyCalculator')
+        self.title("PyCalculator")
 
         self.main_frame = self._make_main_frame()
         self.value_var = tk.StringVar()
@@ -40,11 +51,9 @@ class View(tk.Tk):
 
     def _make_entry(self) -> None:
         """Make the entry widget."""
-        ent = ttk.Entry(self.main_frame,
-                        justify='right',
-                        textvariable=self.value_var)
-        ent.state(statespec=['readonly'])  # Make entry read-only
-        ent.pack(fill='x')
+        ent = ttk.Entry(self.main_frame, justify="right", textvariable=self.value_var)
+        ent.state(statespec=["readonly"])  # Make entry read-only
+        ent.pack(fill="x")
 
     def _make_buttons(self) -> list[ttk.Button]:
         """Make the calculator buttons."""
@@ -59,11 +68,8 @@ class View(tk.Tk):
                 inner_frame = ttk.Frame(outer_frame)
                 inner_frame.pack()
 
-            btn = ttk.Button(
-                inner_frame,
-                text=caption
-            )
-            btn.pack(side='left')
+            btn = ttk.Button(inner_frame, text=caption)
+            btn.pack(side="left")
 
             buttons.append(btn)
 

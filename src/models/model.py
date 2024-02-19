@@ -8,12 +8,12 @@ logger = logging.getLogger(__name__)
 class Model:
 
     def __init__(self) -> None:
-        self.value = ''
+        self.value = ""
 
     def calculate(self, caption: str) -> str:
 
-        if caption == 'C':
-            self.value = ''
+        if caption == "C":
+            self.value = ""
 
         elif caption == CalcCaption.INVERT_SIGN:
             pass

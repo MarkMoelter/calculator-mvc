@@ -15,7 +15,9 @@ class Controller:
 
     def _bind(self) -> None:
         for btn in self.view.buttons:
-            btn.config(command=lambda caption=btn['text']: self.on_button_click(caption))
+            btn.config(
+                command=lambda caption=btn["text"]: self.on_button_click(caption)
+            )
 
     def start_calculator(self) -> None:
         """
@@ -24,5 +26,6 @@ class Controller:
         self.view.mainloop()
 
     def on_button_click(self, button_caption: str) -> None:
-        logger.info(f"Clicked button: {button_caption}")
-        print(f"Clicked button: {button_caption}")
+        result = self.model.calculate(button_caption)
+
+        self.view.value_var.set(result)

@@ -6,20 +6,18 @@ from src.views import View
 
 
 def main() -> None:
-    logging.info('Starting PyCalc')
+    logging.info("Starting PyCalc")
 
     model = Model()
     view = View()
     controller = Controller(model, view)
     controller.start_calculator()
-    
-    logging.info('Closing PyCalc')
+
+    logging.info("Closing PyCalc")
 
 
-def logger_setup(file_name: str = 'App.log') -> None:
-    """
-    Create a root logger with a Stream and File Handler
-    """
+def logger_setup(file_name: str = "App.log") -> None:
+    """Create a root logger with a Stream and File Handler."""
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
 
@@ -29,7 +27,7 @@ def logger_setup(file_name: str = 'App.log') -> None:
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.ERROR)
 
-    FORMAT = '%(levelname)s - %(asctime)s - %(name)s - %(message)s'
+    FORMAT = "%(levelname)s - %(asctime)s - %(name)s - %(message)s"
     formatter = logging.Formatter(FORMAT)
     file_handler.setFormatter(formatter)
     console_handler.setFormatter(formatter)
@@ -38,6 +36,6 @@ def logger_setup(file_name: str = 'App.log') -> None:
     logger.addHandler(console_handler)
 
 
-if __name__ == '__main__':
-    logger_setup('calc.log')
+if __name__ == "__main__":
+    logger_setup("calc.log")
     main()
