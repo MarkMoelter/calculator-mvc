@@ -1,7 +1,7 @@
 CLEAR = "C"
 DELETE = "<-"
 INVERT = "+/-"
-PERCENT = "%"
+MODULO = "%"
 DIVIDE = "/"
 MULTIPLY = "*"
 SUBTRACT = "-"

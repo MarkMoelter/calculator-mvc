@@ -85,8 +85,8 @@ def test_calculate_input_1_appends_to_value():
         ("12", cc.DIVIDE, "6", "2.0"),
         ("2", cc.ADD, "6", "8"),
         ("12", cc.SUBTRACT, "6", "6"),
-        ("12", cc.PERCENT, "6", "0"),
-        ("12", cc.PERCENT, "5", "2"),
+        ("12", cc.MODULO, "6", "0"),
+        ("12", cc.MODULO, "5", "2"),
     ],
 )
 def test_calculate_EQUALS_returns_correct_values(first, operator, second, expectation):

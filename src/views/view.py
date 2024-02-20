@@ -16,7 +16,7 @@ class View(tk.Tk):
         cc.CLEAR,
         cc.DELETE,
         cc.INVERT,
-        cc.PERCENT,
+        cc.MODULO,
         "7",
         "8",
         "9",
