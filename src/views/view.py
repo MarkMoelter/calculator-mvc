@@ -15,7 +15,7 @@ class View(tk.Tk):
     button_captions = [
         cc.CLEAR,
         cc.DELETE,
-        cc.INVERT_SIGN,
+        cc.INVERT,
         cc.PERCENT,
         "7",
         "8",
