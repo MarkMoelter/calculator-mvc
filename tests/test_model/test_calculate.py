@@ -1,3 +1,5 @@
+import pytest
+
 import src.calc_captions as cc
 from src.models import Model
 
@@ -74,3 +76,34 @@ def test_calculate_input_1_appends_to_value():
     model = Model()
 
     assert model.calculate("1") == "1"
+
+
+@pytest.mark.parametrize(
+    "first,operator,second,expectation",
+    [
+        ("2", cc.MULTIPLY, "6", "12"),
+        ("12", cc.DIVIDE, "6", "2.0"),
+        ("2", cc.ADD, "6", "8"),
+        ("12", cc.SUBTRACT, "6", "6"),
+        ("12", cc.PERCENT, "6", "0"),
+        ("12", cc.PERCENT, "5", "2"),
+    ],
+)
+def test_calculate_EQUALS_returns_correct_values(first, operator, second, expectation):
+    model = Model()
+
+    model.calculate(first)
+    model.calculate(operator)
+    model.calculate(second)
+
+    assert model.calculate(cc.EQUALS) == expectation
+
+
+def test_calculate_INVERT_after_operator_does_not_set_INVERT_str_as_operator():
+    model = Model()
+
+    model.calculate("5")
+    model.calculate(cc.MULTIPLY)
+    model.calculate(cc.INVERT)
+
+    assert model.operator != cc.INVERT
